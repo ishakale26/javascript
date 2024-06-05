@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//     1 st method
+//     localStorage.setItem('firstname','isha')
+//     localStorage.setItem('lastname','kale')
+
+//     2nd method
+//     const age =20
+//     localStorage.setItem('age',age)
+
+//     remove item
+//     localStorage.removeItem('lastname')
+
+//     clear all data
+//     localStorage.clear()
+
+//     get element
+//    const data= localStorage.getItem('firstname')
+//    console.log(data)
+
+//    to store array and object we use the process of "json.stringify"
+// array
+// const arr=[1,23,2,1,2]
+// const arr1=JSON.stringify(arr)
+// localStorage.setItem('arr2',arr1)
+
+// // object
+// const person={
+//     name:"isha",
+//     surname:"kale",
+//     age:18
+
+// }
+// const person1=JSON.stringify(person)
+// localStorage.setItem('per',person1)
+ 
+// to convert json sringify into normal object we used json.parse
+const person=[
+    name="isha",
+    lastname='kale'
+]
+console.log(person)
+
+const person1=JSON.stringify(person)
+ console.log(person1)
+
+ const person2=JSON.parse(person1)
+ console.log(person2)
+
+</script>
