@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border:2px solid black;
+            margin: 30px;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+        }
+        button{
+            box-shadow: 0px 0px 5px 3px rgb(93, 87, 87);
+
+        }
+       
+        input:hover{
+            box-shadow: 0px 0px 5px 3px rgb(93, 87, 87);
+        }
+     body{
+        width: 350px;
+        text-align: center;
+        
+     }
+    </style>
+    <nav>
+        <a href="./data.html">
+            <button>save data</button>
+        </a>
+
+        <a href="./display.html">
+<button>Show save data</button>
+        </a>
+        
+    </nav>
+</head>
+<body>
+    <div>
+        <form action="">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name"><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age"><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email"><br><br>
+            <label for="url">Url:</label><br>
+            <input type="url" id="url"><br><br>
+       <button type="button" onclick="myfun()">save</button>
+
+        </form>
+    </div>
+</body>
+</html>
+<script>
+  
+    function myfun(){
+      
+
+        let n=document.getElementById('name').value
+        let a=document.getElementById('age').value
+        let e = document.getElementById('email').value
+        let u=document.getElementById('url').value
+
+let data= {
+     name: n,
+     Age:a,
+     Email:e,
+     Url:u
+}
+// console.log(data)
+    // object ko blank array me push krege 
+    //  array ko local storage me save karege :localstorage.setItem JSON.Stingify
+    // local storage me save data ko get karege
+    // SAVE data ko dkhne ke liye json .parse ka use karege blank array ke sth
+    // isse multiple data save kra skte hai
+    const savedata =JSON.parse(localStorage.getItem("savedata"))||[]
+    savedata.push(data)
+localStorage.setItem("savedata",JSON.stringify(savedata));
+console.log(savedata)
+alert("data is save")
+document.querySelector("form").reset()
+
+    }
+   
+</script>
