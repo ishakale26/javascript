@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <nav>
+        <a href="./data.html">
+            <button>save data</button>
+        </a>
+        
+        <a href="./display.html">
+<button onclick="displaySaveData()">Show save data</button>
+        </a>
+        
+    </nav>
+</head>
+<body>
+    <div>
+        <h2>SaveData</h2>
+        <div id="container">
+          
+        </div>
+      </div>
+      
+  
+      <script>
+        function displaySavedData() {
+          //data get from localStorage
+          const savedata = JSON.parse(localStorage.getItem("savedata"));
+         //get div with id container
+          const Container = document.getElementById("container");
+  
+          if (savedata.length > 0) {
+            savedata.forEach(function(data) {
+              
+              const dataDiv = document.createElement("div");
+              const Name = document.createElement("p");
+              const Age = document.createElement("p");
+              const Email = document.createElement("p");
+              const Image = document.createElement("img");
+              const Hr = document.createElement("hr");
+  
+              Name.textContent = "Name: " + data.name;
+              Age.textContent = "Age: " + data.Age;
+              Email.textContent = "Email: " + data.Email;
+              Image.src = data.Url;
+              Image.style.maxWidth = "200px";
+  
+              dataDiv.append(Name, Age, Email, Image, Hr);
+  
+              Container.appendChild(dataDiv);
+            });
+          } 
+          else {
+            Container.innerHTML = "<p>data not found</p>";
+          }
+        }
+  
+        displaySavedData();
+      </script>
+  
+</body>
+</html>
